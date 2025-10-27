@@ -14,6 +14,8 @@ Unlike linear regulators, which dissipate excess voltage as heat, the buck conve
 
 ---
 
+
+
 ## 🧱 2. Block Diagram
 
 ```mermaid
@@ -26,5 +28,3 @@ E --> F[Schottky Diode (D2)]
 F --> G[Output Filter Capacitor]
 G --> H[Feedback Network (R1, R2)]
 H --> I[Output Terminal + LED Indicator]
-
-G --> H[OUTPUT Connector]
