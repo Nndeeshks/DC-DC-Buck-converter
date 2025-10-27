@@ -1,40 +1,30 @@
 # ⚡ DC–DC Buck Converter (LM2596-ADJ)
 
-This project implements a **DC–DC Buck Converter** using the **LM2596 adjustable regulator IC**.  
-It efficiently steps down a higher DC voltage (9–24V) to a stable output (~7.38V).
+This project demonstrates the design and development of a **DC–DC Buck Converter** using the **LM2596 Adjustable Regulator IC**.  
+The converter efficiently steps down a higher DC voltage (9–24 V) to a lower, regulated DC voltage (~7.38 V).  
+It is designed, simulated, and implemented as a **2-layer PCB** using **KiCad**.
 
 ---
 
-## 🔧 Features
-- Input fuse and reverse polarity protection  
-- Adjustable output via feedback resistors  
-- LED output indicator  
-- Compact 2-layer PCB in KiCad  
+## 🧭 1. Introduction
+A **Buck Converter** (step-down converter) is a type of **switching voltage regulator** that reduces the input voltage to a desired lower output voltage while maintaining high efficiency.  
+It uses an **inductor, a switching transistor (inside LM2596), a diode**, and **filter capacitors** to convert DC levels efficiently.
+
+Unlike linear regulators, which dissipate excess voltage as heat, the buck converter stores and transfers energy using an inductor and switching control, achieving efficiencies of **80–90%**.
 
 ---
 
-## 🧩 Components
-| Component | Value / Part No | Description |
-|------------|----------------|-------------|
-| LM2596S-ADJ | — | Regulator IC |
-| L1 | 100 µH | Power inductor |
-| D2 | 1N5822 | Schottky diode |
-| C1 | 100 µF / 35V | Input capacitor |
-| C2, C3 | 220 µF / 100 µF | Output capacitors |
-| R1, R2 | 10kΩ / 2kΩ | Feedback resistors |
-| D3 | LED | Output indicator |
-| R3 | 470Ω | LED resistor |
-| Fuse | 1A | Input protection |
+## 🧱 2. Block Diagram
 
----
-
-## ⚙️ Block Diagram
 ```mermaid
 graph LR
-A[INPUT Connector] --> B[Fuse & Reverse Diode Protection]
-B --> C[Input Filter Circuit]
-C --> D[LM2596 Buck Converter IC]
-D --> E[Inductor]
-E --> F[Output Filter]
-F --> G[LED Indicator]
+A[Input Terminal] --> B[Fuse & Reverse Diode Protection]
+B --> C[Input Filter Capacitor]
+C --> D[LM2596 Adjustable Regulator IC]
+D --> E[Inductor (L1)]
+E --> F[Schottky Diode (D2)]
+F --> G[Output Filter Capacitor]
+G --> H[Feedback Network (R1, R2)]
+H --> I[Output Terminal + LED Indicator]
+
 G --> H[OUTPUT Connector]
