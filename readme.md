@@ -38,4 +38,3 @@ D --> E[Inductor]
 E --> F[Output Filter]
 F --> G[LED Indicator]
 G --> H[OUTPUT Connector]
-
